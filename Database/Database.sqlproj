@@ -63,6 +63,7 @@
   <ItemGroup>
     <Build Include="Tables\Customer.sql" />
     <Build Include="Security\NetworkService.sql" />
+    <Build Include="Security\Candidate.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Gender.sql" />

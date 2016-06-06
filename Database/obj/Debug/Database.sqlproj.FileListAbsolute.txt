@@ -1,9 +1,0 @@
-C:\CustomerManager\Database\bin\Debug\Database.dacpac
-C:\CustomerManager\Database\bin\Debug\Database.dll
-C:\CustomerManager\Database\bin\Debug\Database.pdb
-C:\CustomerManager\Database\obj\Debug\Database.dll
-C:\CustomerManager\Database\obj\Debug\Database.pdb
-C:\CustomerManager\Database\obj\Debug\Model.xml
-C:\CustomerManager\Database\obj\Debug\refactor.xml
-C:\CustomerManager\Database\obj\Debug\postdeploy.sql
-C:\CustomerManager\Database\obj\Debug\predeploy.sql
