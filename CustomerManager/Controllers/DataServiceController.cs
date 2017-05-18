@@ -17,7 +17,7 @@ namespace CustomerManager.Controllers {
 				Model.Customer[] customers = db.Customers.ToArray()
 					.Select(c => new Model.Customer(c)).ToArray();
 				HttpContext.Current.Response.Headers.Add("X-InlineCount", customers.Length.ToString());
-				return Request.CreateResponse(HttpStatusCode.OK, customers);
+				return Request.CreateResponse(HttpStatusCode.OK, customers.Skip(skip).Take(top));
 			}
 		}
 
@@ -38,7 +38,7 @@ namespace CustomerManager.Controllers {
 					GenderID = c.GenderID ?? 1
 				}).ToArray();
 				HttpContext.Current.Response.Headers.Add("X-InlineCount", custSummary.Length.ToString());
-				return Request.CreateResponse(HttpStatusCode.OK, custSummary);
+				return Request.CreateResponse(HttpStatusCode.OK, custSummary.Skip(skip).Take(top));
 			}
 		}
 

@@ -20,7 +20,7 @@ namespace CustomerManager.Repository
         public int Quantity { get; set; }
         public System.DateTime Date { get; set; }
         public int CustomerID { get; set; }
-    
+        public bool FulFilled { get; set; }
         public virtual Customer Customer { get; set; }
     }
 }

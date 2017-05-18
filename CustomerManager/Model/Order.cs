@@ -13,5 +13,6 @@ namespace CustomerManager.Model {
 		public DateTime Date { get; set; }
 		public int CustomerId { get; set; }
 		public Customer Customer { get; set; }
+		public bool FulFilled { get; set; }
 	}
 }

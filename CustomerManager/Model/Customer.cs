@@ -41,7 +41,8 @@ namespace CustomerManager.Model {
 				Product = o.Product,
 				Price = o.Price,
 				Quantity = o.Quantity,
-				Date = o.Date
+				Date = o.Date,
+				FulFilled = o.FulFilled
 			}).ToArray();
 		}
 	}

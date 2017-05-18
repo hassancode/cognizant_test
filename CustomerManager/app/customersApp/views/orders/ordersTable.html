@@ -6,11 +6,12 @@
             <th data-ng-click="vm.setOrder('quantity')">Quantity</th>
             <th data-ng-click="vm.setOrder('price')">Unit Price</th>
             <th data-ng-click="vm.setOrder('orderTotal')">Total</th>
+			<th data-ng-click="vm.setOrder('fulFilled')">FulFilled</th>
         </tr>
     </thead>
     <tbody>
         <tr data-ng-hide="vm.customer.orders || vm.customer.orders.length > 0" class="error">
-            <td colspan="5">
+            <td colspan="6">
                 <div class="text-center"><strong>No orders found</strong></div>
             </td>
         </tr>
@@ -30,6 +31,9 @@
             <td>
                 {{ order.orderTotal | currency }}
             </td>
+			<td>
+				{{ order.fulFilled ? "Yes" : "No" }}
+			</td>
         </tr>
         <tr class="info">
             <td colspan="4">
@@ -38,6 +42,9 @@
             <td>
                 <strong>{{ vm.customer.ordersTotal | currency }}</strong>
             </td>
+			<td>
+				&nbsp;
+			</td>
         </tr>
     </tbody>
 </table>
