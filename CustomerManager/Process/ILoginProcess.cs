@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace CustomerManager.Process {
 	interface ILoginProcess {
-		Task Execute();
+		void Execute();
 	}
 }

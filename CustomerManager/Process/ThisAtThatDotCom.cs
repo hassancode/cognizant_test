@@ -8,11 +8,9 @@ using System.Web;
 
 namespace CustomerManager.Process {
 	public class ThisAtThatDotCom : ILoginProcess {
-		public async Task Execute() {
+		public void Execute() {
 			Thread.Sleep(5000);
 			File.AppendAllText(@"C:\logs\this@that.com.txt", "Logged in at " + DateTime.Now.ToString());
-
-			await Task.Delay(1000);
 		}
 	}
 }
