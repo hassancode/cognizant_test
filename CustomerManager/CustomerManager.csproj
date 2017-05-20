@@ -190,6 +190,7 @@
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\UserLogin.cs" />
+    <Compile Include="Process\ThisAtThatDotCom.cs" />
     <Compile Include="Process\FooAtBarDotCom.cs" />
     <Compile Include="Process\ILoginProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

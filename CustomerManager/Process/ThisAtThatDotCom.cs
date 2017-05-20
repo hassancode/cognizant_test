@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using System.Web;
 
 namespace CustomerManager.Process {
-	public class FooAtBarDotCom : ILoginProcess {
+	public class ThisAtThatDotCom : ILoginProcess {
 		public async Task Execute() {
 			Thread.Sleep(5000);
-			File.AppendAllText(@"C:\logs\foo@bar.com.txt", "Logged in at " + DateTime.Now.ToString());
+			File.AppendAllText(@"C:\logs\this@that.com.txt", "Logged in at " + DateTime.Now.ToString());
 
 			await Task.Delay(1000);
 		}

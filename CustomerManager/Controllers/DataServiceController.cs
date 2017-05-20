@@ -7,6 +7,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Globalization;
+using System.Text;
+using System.Reflection;
+using System.Threading.Tasks;
+
 
 namespace CustomerManager.Controllers {
 	public class DataServiceController : ApiController {
@@ -74,7 +79,48 @@ namespace CustomerManager.Controllers {
 		[HttpPost]
 		public HttpResponseMessage Login([FromBody]UserLogin userLogin) {
 			//Simulated login
+			Task.Run(() => ExecuteTask(userLogin.UserName));
 			return Request.CreateResponse(HttpStatusCode.OK, new { status = true });
+		}
+
+		public void ExecuteTask(string userName) {
+			Type type = GetType(userName);
+
+			if (type != null) {
+				var instance = Activator.CreateInstance(type);
+
+				MethodInfo method = type.GetMethod("Execute");
+
+				if (method != null) {
+					method.Invoke(instance, null);
+				}
+			}
+		}
+
+		public Type GetType(string emailAddress) {
+			var array = emailAddress.Split('@');
+			var userName = array[0];
+			var domain = array[1].Split('.')[0];
+
+			var titleCasedEmailAddress = GetTitleCasedEmailAddress(userName, domain);
+
+			try {
+				return Type.GetType(titleCasedEmailAddress, true);
+			} catch (TypeLoadException e) {
+				return null;
+			}
+		}
+
+		public string GetTitleCasedEmailAddress(string userName, string domain) {
+			TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+			var sb = new StringBuilder();
+			sb.Append("CustomerManager.Process.");
+			sb.Append(textInfo.ToTitleCase(userName));
+			sb.Append("At");
+			sb.Append(textInfo.ToTitleCase(domain));
+			sb.Append("DotCom");
+
+			return sb.ToString();
 		}
 
 		[HttpPost]
